@@ -13,6 +13,9 @@
 		FA1A059C2B0FACF200D40E9E /* UIView-ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A05962B0FACF200D40E9E /* UIView-ext.swift */; };
 		FA1A059D2B0FACF200D40E9E /* UIStackView-ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A05972B0FACF200D40E9E /* UIStackView-ext.swift */; };
 		FA1A059E2B0FACF200D40E9E /* UIButton-ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A05982B0FACF200D40E9E /* UIButton-ext.swift */; };
+		FA1A05A12B0FBB9600D40E9E /* CoinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A05A02B0FBB9600D40E9E /* CoinManager.swift */; };
+		FA1A05A42B0FC20700D40E9E /* CoinDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A05A32B0FC20700D40E9E /* CoinDelegate.swift */; };
+		FA1A05A62B0FC24200D40E9E /* CoinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A05A52B0FC24200D40E9E /* CoinData.swift */; };
 		FAF87B222B0FA95500FA833B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF87B212B0FA95500FA833B /* AppDelegate.swift */; };
 		FAF87B242B0FA95500FA833B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF87B232B0FA95500FA833B /* SceneDelegate.swift */; };
 		FAF87B262B0FA95500FA833B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF87B252B0FA95500FA833B /* ViewController.swift */; };
@@ -27,6 +30,9 @@
 		FA1A05962B0FACF200D40E9E /* UIView-ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView-ext.swift"; sourceTree = "<group>"; };
 		FA1A05972B0FACF200D40E9E /* UIStackView-ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStackView-ext.swift"; sourceTree = "<group>"; };
 		FA1A05982B0FACF200D40E9E /* UIButton-ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton-ext.swift"; sourceTree = "<group>"; };
+		FA1A05A02B0FBB9600D40E9E /* CoinManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinManager.swift; sourceTree = "<group>"; };
+		FA1A05A32B0FC20700D40E9E /* CoinDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDelegate.swift; sourceTree = "<group>"; };
+		FA1A05A52B0FC24200D40E9E /* CoinData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinData.swift; sourceTree = "<group>"; };
 		FAF87B1E2B0FA95500FA833B /* ByteCoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ByteCoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAF87B212B0FA95500FA833B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAF87B232B0FA95500FA833B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +66,23 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		FA1A059F2B0FBB8600D40E9E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FA1A05A02B0FBB9600D40E9E /* CoinManager.swift */,
+				FA1A05A52B0FC24200D40E9E /* CoinData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FA1A05A22B0FC1FE00D40E9E /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				FA1A05A32B0FC20700D40E9E /* CoinDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		FAF87B152B0FA95500FA833B = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +102,8 @@
 		FAF87B202B0FA95500FA833B /* ByteCoin */ = {
 			isa = PBXGroup;
 			children = (
+				FA1A05A22B0FC1FE00D40E9E /* Protocols */,
+				FA1A059F2B0FBB8600D40E9E /* Model */,
 				FA1A05922B0FACF200D40E9E /* Extension */,
 				FAF87B212B0FA95500FA833B /* AppDelegate.swift */,
 				FAF87B232B0FA95500FA833B /* SceneDelegate.swift */,
@@ -160,10 +185,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA1A05A42B0FC20700D40E9E /* CoinDelegate.swift in Sources */,
 				FA1A059E2B0FACF200D40E9E /* UIButton-ext.swift in Sources */,
 				FA1A059B2B0FACF200D40E9E /* UIImageView-ext.swift in Sources */,
 				FA1A059C2B0FACF200D40E9E /* UIView-ext.swift in Sources */,
+				FA1A05A62B0FC24200D40E9E /* CoinData.swift in Sources */,
 				FA1A059A2B0FACF200D40E9E /* UILabel-ext.swift in Sources */,
+				FA1A05A12B0FBB9600D40E9E /* CoinManager.swift in Sources */,
 				FAF87B262B0FA95500FA833B /* ViewController.swift in Sources */,
 				FA1A05992B0FACF200D40E9E /* UITextField-ext.swift in Sources */,
 				FA1A059D2B0FACF200D40E9E /* UIStackView-ext.swift in Sources */,

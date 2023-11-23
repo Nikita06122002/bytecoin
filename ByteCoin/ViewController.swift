@@ -11,11 +11,13 @@ class ViewController: UIViewController {
     
     private let label = UILabel(text: "BitCoin", font: .boldSystemFont(ofSize: 60))
     private let costLabel = UILabel(text: "76938.93", font: .systemFont(ofSize: 25))
-    private let money = UILabel(text: "USD", font: .systemFont(ofSize: 25))
+    private let money = UILabel(text: "USD", font: .systemFont(ofSize: 20))
     
     private let costView = UIView(color: .systemGray4, radius: 50)
     private let bitcoin = UIImageView(image: UIImage(named: "bitcoin")!)
     private let pickerView = UIPickerView()
+    
+    private var coinManager = CoinManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +25,9 @@ class ViewController: UIViewController {
         view.alpha = 0.8
         setupUI()
         setupConst()
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        coinManager.delegate = self
         
     }
     
@@ -55,7 +60,7 @@ class ViewController: UIViewController {
             bitcoin.leadingAnchor.constraint(equalTo: costView.leadingAnchor, constant: 5),
             
             costLabel.centerYAnchor.constraint(equalTo: costView.centerYAnchor),
-            costLabel.leadingAnchor.constraint(equalTo: bitcoin.trailingAnchor, constant: 25),
+            costLabel.leadingAnchor.constraint(equalTo: bitcoin.trailingAnchor, constant: 10),
             
             money.centerYAnchor.constraint(equalTo: costView.centerYAnchor),
             money.leadingAnchor.constraint(equalTo: costLabel.trailingAnchor, constant: 5),
@@ -70,6 +75,45 @@ class ViewController: UIViewController {
     }
 
 
+}
+
+extension ViewController: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return coinManager.currencyArray.count
+    }
+    
+    
+}
+
+extension ViewController: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return coinManager.currencyArray[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let selectedRow = coinManager.currencyArray[row]
+        coinManager.fetchCoin(for: selectedRow)
+        money.text = selectedRow
+    }
+    
+}
+
+extension ViewController: CoinDelegate {
+    func didUpdateCoin(coinManager: CoinManager, coin: CoinData) {
+        DispatchQueue.main.async {
+            self.costLabel.text = String(format: "%.3f", coin.rate)
+        }
+    }
+    
+    func didFailWithError(error: Error) {
+        print(error)
+    }
+    
+    
 }
 
 
